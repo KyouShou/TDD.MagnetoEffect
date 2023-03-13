@@ -27,10 +27,10 @@ namespace TDD.MagnetoEffect.Tests
         }
 
         [Test]
-        public void One_Near_Archor()
+        public void One_Near_Anchor()
         {
             MagnetoEffect magnetoEffect = new MagnetoEffect();
-            magnetoEffect.AddArchor(new Point(50, 50));
+            magnetoEffect.AddAnchor(new Point(50, 50));
 
             Point before = new Point(49, 50);
 
