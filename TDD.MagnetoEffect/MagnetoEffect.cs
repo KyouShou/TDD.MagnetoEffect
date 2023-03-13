@@ -9,16 +9,23 @@ namespace TDD.MagnetoEffect
 {
     public class MagnetoEffect
     {
-        private Point Anchor;
+        private Point _anchor;
 
         public Point Check(Point point)
         {
-            return point;
+            if (_anchor.IsEmpty)
+            {
+                return point;
+            }
+            else
+            {
+                return _anchor;
+            }
         }
 
         public void AddAnchor(Point newAnchor)
         {
-        
+            this._anchor = newAnchor;
         }
 
     }
