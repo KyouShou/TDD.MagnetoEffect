@@ -16,7 +16,7 @@ namespace TDD.MagnetoEffect
 
         public Point Check(Point point)
         {
-            return new Point();
+            return point;
         }
 
     }
