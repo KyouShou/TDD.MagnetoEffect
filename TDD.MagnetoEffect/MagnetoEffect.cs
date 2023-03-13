@@ -18,18 +18,22 @@ namespace TDD.MagnetoEffect
                 return point;
             }
 
-            if (Math.Pow(_anchor.X - point.X, 2) + Math.Pow(_anchor.Y - point.Y, 2) > 5)
+            if (IsFarFromAnchor(point))
             {
                 return point;
             }
 
             return _anchor;
-
         }
 
         public void AddAnchor(Point newAnchor)
         {
             this._anchor = newAnchor;
+        }
+
+        private bool IsFarFromAnchor(Point point)
+        {
+            return Math.Pow(_anchor.X - point.X, 2) + Math.Pow(_anchor.Y - point.Y, 2) > Math.Pow(5, 2);
         }
 
     }
