@@ -9,32 +9,37 @@ namespace TDD.MagnetoEffect
 {
     public class MagnetoEffect
     {
-        private Point _anchor;
+        private List<Point> _anchorList;
+
+        public MagnetoEffect()
+        {
+            _anchorList = new List<Point>();
+        }
 
         public Point Check(Point point)
         {
-            if (_anchor.IsEmpty)
+
+            if (_anchorList.Count == 0)
             {
                 return point;
             }
 
-            if (IsFarFromAnchor(point))
+            foreach (var anchor in _anchorList)
             {
-                return point;
+                double distance = Math.Pow(anchor.X - point.X, 2) + Math.Pow(anchor.Y - point.Y, 2);
+
+                if (distance <= Math.Pow(5, 2))
+                {
+                    return anchor;
+                }
             }
 
-            return _anchor;
+            return point;
         }
 
         public void AddAnchor(Point newAnchor)
         {
-            this._anchor = newAnchor;
+            _anchorList.Add(newAnchor);
         }
-
-        private bool IsFarFromAnchor(Point point)
-        {
-            return Math.Pow(_anchor.X - point.X, 2) + Math.Pow(_anchor.Y - point.Y, 2) > Math.Pow(5, 2);
-        }
-
     }
 }
