@@ -62,7 +62,7 @@ namespace TDD.MagnetoEffect.Tests
 
 
         [Test]
-        public void Two_Far_Anchor()
+        public void Two_Anchors_And_Only_Is_Near()
         {
             Given_Anchor_Is(50, 50);
             Given_Anchor_Is(0, 0);
