@@ -17,10 +17,14 @@ namespace TDD.MagnetoEffect
             {
                 return point;
             }
-            else
+
+            if (Math.Pow(_anchor.X - point.X, 2) + Math.Pow(_anchor.Y - point.Y, 2) > 5)
             {
-                return _anchor;
+                return point;
             }
+
+            return _anchor;
+
         }
 
         public void AddAnchor(Point newAnchor)
