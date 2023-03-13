@@ -60,6 +60,20 @@ namespace TDD.MagnetoEffect.Tests
             Then_Mouse_New_Position_Is(49, 50);
         }
 
+
+        [Test]
+        public void Two_Far_Anchor()
+        {
+            Given_Anchor_Is(50, 50);
+            Given_Anchor_Is(0, 0);
+
+            Given_Mouse_Was_At(49, 50);
+
+            When_Check();
+
+            Then_Mouse_New_Position_Is(50, 50);
+        }
+
         private void Given_Mouse_Was_At(int x, int y)
         {
             _beforePoint = new Point(x, y);
