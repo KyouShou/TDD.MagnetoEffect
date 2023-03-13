@@ -23,7 +23,20 @@ namespace TDD.MagnetoEffect.Tests
 
             Point after = magnetoEffect.Check(before);
 
-            Assert.AreEqual(before , after);
+            Assert.AreEqual(before, after);
+        }
+
+        [Test]
+        public void One_Near_Archor()
+        {
+            MagnetoEffect magnetoEffect = new MagnetoEffect();
+            magnetoEffect.AddArchor(new Point(50, 50));
+
+            Point before = new Point(49, 50);
+
+            Point after = magnetoEffect.Check(before);
+
+            Assert.AreEqual(new Point(50, 50), after);
         }
 
     }
