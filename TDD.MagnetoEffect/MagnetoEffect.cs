@@ -26,9 +26,9 @@ namespace TDD.MagnetoEffect
 
             foreach (var anchor in _anchorList)
             {
-                double distance = Math.Pow(anchor.X - point.X, 2) + Math.Pow(anchor.Y - point.Y, 2);
+                double distance = CalculateDistance(anchor , point);
 
-                if (distance <= Math.Pow(5, 2))
+                if (distance <= 5)
                 {
                     return anchor;
                 }
@@ -40,6 +40,12 @@ namespace TDD.MagnetoEffect
         public void AddAnchor(Point newAnchor)
         {
             _anchorList.Add(newAnchor);
+        }
+        private double CalculateDistance(Point firsrPoint, Point secondPoint)
+        {
+            var squareOfDistance = Math.Pow(firsrPoint.X - secondPoint.X, 2) + Math.Pow(firsrPoint.Y - secondPoint.Y, 2);
+
+            return Math.Pow(squareOfDistance , 0.5);
         }
     }
 }
