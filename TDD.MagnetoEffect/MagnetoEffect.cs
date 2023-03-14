@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -35,18 +36,6 @@ namespace TDD.MagnetoEffect
             {
                 return point;
             }
-
-            //foreach (var anchor in _anchorList)
-            //{
-            //    double distance = CalculateDistance(anchor , point);
-
-            //    if (distance <= 5)
-            //    {
-            //        return anchor;
-            //    }
-            //}
-
-            //return point;
         }
 
         public void AddAnchor(Point newAnchor)
