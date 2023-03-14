@@ -24,23 +24,54 @@ namespace TDD.MagnetoEffect
                 return point;
             }
 
-            foreach (var anchor in _anchorList)
-            {
-                double distance = CalculateDistance(anchor , point);
+            var nearestAnchor = GetNearestAnchor(point);
+            var distanceBetweenNearestAnchor = CalculateDistance(nearestAnchor , point);
 
-                if (distance <= 5)
-                {
-                    return anchor;
-                }
+            if (distanceBetweenNearestAnchor <= 5)
+            {
+                return nearestAnchor;
+            }
+            else
+            {
+                return point;
             }
 
-            return point;
+            //foreach (var anchor in _anchorList)
+            //{
+            //    double distance = CalculateDistance(anchor , point);
+
+            //    if (distance <= 5)
+            //    {
+            //        return anchor;
+            //    }
+            //}
+
+            //return point;
         }
 
         public void AddAnchor(Point newAnchor)
         {
             _anchorList.Add(newAnchor);
         }
+
+        private Point GetNearestAnchor(Point point)
+        {
+            var nearestAnchor = _anchorList[0];
+            var nearestDistance = CalculateDistance(_anchorList[0],  point);
+
+            foreach (var anchor in _anchorList)
+            {
+                double distance = CalculateDistance(anchor, point);
+
+                if (distance <= nearestDistance)
+                {
+                    nearestAnchor = anchor;
+                }
+            }
+
+            return nearestAnchor;
+        }
+
         private double CalculateDistance(Point firsrPoint, Point secondPoint)
         {
             var squareOfDistance = Math.Pow(firsrPoint.X - secondPoint.X, 2) + Math.Pow(firsrPoint.Y - secondPoint.Y, 2);
