@@ -19,13 +19,12 @@ namespace TDD.MagnetoEffect
 
         public Point Check(Point point)
         {
-
             if (_anchorList.Count == 0)
             {
                 return point;
             }
 
-            var nearestAnchor = GetNearestAnchor(point);
+            var nearestAnchor = FindNearestAnchor(point);
             var distanceBetweenNearestAnchor = CalculateDistance(nearestAnchor , point);
 
             if (distanceBetweenNearestAnchor <= 5)
@@ -43,7 +42,7 @@ namespace TDD.MagnetoEffect
             _anchorList.Add(newAnchor);
         }
 
-        private Point GetNearestAnchor(Point point)
+        private Point FindNearestAnchor(Point point)
         {
             var nearestAnchor = _anchorList[0];
             var nearestDistance = CalculateDistance(_anchorList[0],  point);
